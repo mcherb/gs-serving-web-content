@@ -5,6 +5,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <p th:text="'Hello, ' + ${name} + '!'" />
+    <p th:text="'Hello, [' + ${name} + ']'" />
+
+
+    <form method="post" action="greeting.html" th:action="@{/greeting}" th:object="${customer}">
+        <!-- Use th:field to set field 'id' here -->
+        <input type="hidden" />
+
+        <!-- Use th:field to show *{firstName} -->
+        <label for="firstName">First name:</label>
+        <input type="text" th:field="*{firstName}" value="John" id="firstName" />
+
+
+
+
+        <input type="submit" />
+    </form>
 </body>
 </html>
